@@ -19,6 +19,9 @@ public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	float PlayerHealth;
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent *SpringArmComp;
@@ -44,7 +47,4 @@ protected:
 	virtual void Jump() override;
 	virtual void StopJumping() override;
 	virtual void Tick(float DeltaTime) override;
-
-public:
-	// Called to bind functionality to input
 };

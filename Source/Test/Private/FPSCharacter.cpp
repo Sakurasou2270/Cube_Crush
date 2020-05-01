@@ -24,12 +24,13 @@ AFPSCharacter::AFPSCharacter()
 
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
+	PlayerHealth = 100.f;
 }
 
 void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("%s"), bPressedJump ? TEXT("True") : TEXT("False"));
+	// UE_LOG(LogTemp, Warning, TEXT("%s"), bPressedJump ? TEXT("True") : TEXT("False"));
 }
 
 void AFPSCharacter::MoveFoward(float Value)

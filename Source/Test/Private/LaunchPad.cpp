@@ -2,6 +2,7 @@
 
 #include "LaunchPad.h"
 #include "Components/BoxComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "FPSCharacter.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
@@ -15,6 +16,9 @@ ALaunchPad::ALaunchPad()
 	BoxComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	RootComponent = BoxComp;
 
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	Mesh->SetupAttachment(RootComponent);
+
 	BoxComp->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
 }
 
@@ -23,7 +27,6 @@ void ALaunchPad::BeginPlay()
 {
 	Super::BeginPlay();
 	DrawDebugBox(GetWorld(), GetActorLocation(), FVector(75.f), FColor::Purple, true, 0.f, 0, 5.f);
-
 	Player = Cast<AFPSCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 }
 

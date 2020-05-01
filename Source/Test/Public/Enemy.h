@@ -4,34 +4,39 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "LaunchPad.generated.h"
+#include "Enemy.generated.h"
 
 class UBoxComponent;
 class UStaticMeshComponent;
-class AFPSCharacter;
+// class AFPSCharacter;
 
 UCLASS()
-class TEST_API ALaunchPad : public AActor
+class TEST_API AEnemy : public AActor
 {
 	GENERATED_BODY()
+
 public:
 	// Sets default values for this actor's properties
-	ALaunchPad();
+	AEnemy();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, Category = "Collision")
+	UPROPERTY(VisibleAnywhere, Category = "Enemy")
 	UBoxComponent *BoxComp;
 
-	UPROPERTY(VisibleAnywhere, Category = "Mesh")
-	UStaticMeshComponent *Mesh;
-	
-	AFPSCharacter *Player;
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy")
+	UStaticMeshComponent *Enemy;
+
+	// UPROPERTY(EditAnywhere, Category = "Enemy")
+	// AFPSCharacter *Player = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	float Damage;
 
 	UFUNCTION()
-	void OnOverlapBegin(
+	void OnOverlapAttack(
 		UPrimitiveComponent *OverlappedComp,
 		AActor *OtherActor,
 		UPrimitiveComponent *OtherComp,
