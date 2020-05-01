@@ -31,14 +31,10 @@ void AEnemy::BeginPlay()
 
 	DrawDebugBox(GetWorld(), GetActorLocation(), FVector(100.f, 100.f, 75.f), FColor::Green, true, 0.f, 0, 5.f);
 
-	auto Player = Cast<AFPSCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
+	Player = Cast<AFPSCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (Player == nullptr || !Player)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Please Select A Targeting Pawn For %s"), *GetOwner()->GetName());
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *Player->GetName());
 	}
 }
 
@@ -50,6 +46,14 @@ void AEnemy::OnOverlapAttack(
 	bool bFromSweep,
 	const FHitResult &SweepResult)
 {
-
-	// Player->UE_LOG(LogTemp, Warning, TEXT("Attacking"));
+	if (Player->PlayerHealth >= 0)
+	{
+		Player->PlayerHealth -= Damage;
+	}
+	
+	if (Player->PlayerHealth <= 0)
+	{
+		Player->PlayerDeath();
+	}
+	UE_LOG(LogTemp, Warning, TEXT("%f"), Player->GetPlayerHealth());
 }

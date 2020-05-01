@@ -72,7 +72,7 @@
 			"preLaunchTask": "TestEditor Win64 Debug Build",
 			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
 			"args": [
-				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Test.uproject"
+				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Cube_Crush.uproject"
 			],
 			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
 			"stopAtEntry": false,
@@ -86,7 +86,7 @@
 			"preLaunchTask": "TestEditor Win64 DebugGame Build",
 			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
 			"args": [
-				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Test.uproject"
+				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Cube_Crush.uproject"
 			],
 			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
 			"stopAtEntry": false,
@@ -100,7 +100,7 @@
 			"preLaunchTask": "TestEditor Win64 Development Build",
 			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor.exe",
 			"args": [
-				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Test.uproject"
+				"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Cube_Crush.uproject"
 			],
 			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
 			"stopAtEntry": false,
@@ -117,7 +117,7 @@
 			"args": [
 				"-projectfiles",
 				"-vscode",
-				"-project=\"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Test.uproject\"",
+				"-project=\"C:\\Users\\Akasa\\Desktop\\UE4\\Test\\Cube_Crush.uproject\"",
 				"-game",
 				"-engine"
 			],

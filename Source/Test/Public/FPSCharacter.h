@@ -22,6 +22,12 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	float PlayerHealth;
 
+	UFUNCTION(BlueprintCallable)
+	float GetPlayerHealth();
+
+	UFUNCTION(BlueprintCallable)
+	void PlayerDeath();
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent *SpringArmComp;

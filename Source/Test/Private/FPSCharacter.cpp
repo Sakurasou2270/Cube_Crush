@@ -31,6 +31,7 @@ void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	// UE_LOG(LogTemp, Warning, TEXT("%s"), bPressedJump ? TEXT("True") : TEXT("False"));
+	UE_LOG(LogTemp, Warning, TEXT("%f"), PlayerHealth);
 }
 
 void AFPSCharacter::MoveFoward(float Value)
@@ -102,10 +103,21 @@ void AFPSCharacter::StopJumping()
 {
 }
 
+float AFPSCharacter::GetPlayerHealth()
+{
+	return PlayerHealth;
+}
+
+void AFPSCharacter::PlayerDeath()
+{
+	this->DisableInput(nullptr);
+	// this->Destroy();
+}
+
 void AFPSCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	FHitResult Hit;
 	OnLanded(Hit);
-	UE_LOG(LogTemp, Warning, TEXT("%s"), bPressedJump ? TEXT("Pressed Jump") : TEXT("False"));
+	// UE_LOG(LogTemp, Warning, TEXT("%s"), bPressedJump ? TEXT("Pressed Jump") : TEXT("False"));
 }

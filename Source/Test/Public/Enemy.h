@@ -8,7 +8,7 @@
 
 class UBoxComponent;
 class UStaticMeshComponent;
-// class AFPSCharacter;
+class AFPSCharacter;
 
 UCLASS()
 class TEST_API AEnemy : public AActor
@@ -29,8 +29,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy")
 	UStaticMeshComponent *Enemy;
 
-	// UPROPERTY(EditAnywhere, Category = "Enemy")
-	// AFPSCharacter *Player = nullptr;
+	UPROPERTY(EditAnywhere, Category = "Enemy")
+	AFPSCharacter *Player = nullptr;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	float Damage;
