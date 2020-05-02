@@ -103,15 +103,9 @@ void AFPSCharacter::StopJumping()
 {
 }
 
-float AFPSCharacter::GetPlayerHealth()
-{
-	return PlayerHealth;
-}
-
 void AFPSCharacter::PlayerDeath()
 {
-	this->DisableInput(nullptr);
-	// this->Destroy();
+	this->Destroy();
 }
 
 void AFPSCharacter::Tick(float DeltaTime)

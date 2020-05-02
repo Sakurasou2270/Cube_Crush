@@ -5,6 +5,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "FPSCharacter.h"
+#include "MainGameMode.h"
 #include "DrawDebugHelpers.h"
 
 // Sets default values
@@ -29,13 +30,9 @@ void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 
-	DrawDebugBox(GetWorld(), GetActorLocation(), FVector(100.f, 100.f, 75.f), FColor::Green, true, 0.f, 0, 5.f);
-
 	Player = Cast<AFPSCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
-	if (Player == nullptr || !Player)
-	{
-		UE_LOG(LogTemp, Error, TEXT("Please Select A Targeting Pawn For %s"), *GetOwner()->GetName());
-	}
+	GM = Cast<AMainGameMode>(GetWorld()->GetAuthGameMode());
+	DrawDebugBox(GetWorld(), GetActorLocation(), FVector(100.f, 100.f, 75.f), FColor::Green, true, 0.f, 0, 5.f);
 }
 
 void AEnemy::OnOverlapAttack(
@@ -50,10 +47,8 @@ void AEnemy::OnOverlapAttack(
 	{
 		Player->PlayerHealth -= Damage;
 	}
-	
-	if (Player->PlayerHealth <= 0)
+	if (Player->PlayerHealth <= 0 && Player && GM)
 	{
-		Player->PlayerDeath();
+		GM->EndGame(Player);
 	}
-	UE_LOG(LogTemp, Warning, TEXT("%f"), Player->GetPlayerHealth());
 }

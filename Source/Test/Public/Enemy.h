@@ -9,6 +9,7 @@
 class UBoxComponent;
 class UStaticMeshComponent;
 class AFPSCharacter;
+class AMainGameMode;
 
 UCLASS()
 class TEST_API AEnemy : public AActor
@@ -35,8 +36,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	float Damage;
 
-	UFUNCTION()
-	void OnOverlapAttack(
+	AMainGameMode *GM = nullptr;
+
+	UFUNCTION() void OnOverlapAttack(
 		UPrimitiveComponent *OverlappedComp,
 		AActor *OtherActor,
 		UPrimitiveComponent *OtherComp,

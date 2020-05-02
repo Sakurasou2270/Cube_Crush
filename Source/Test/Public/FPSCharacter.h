@@ -19,13 +19,9 @@ public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
 	float PlayerHealth;
 
-	UFUNCTION(BlueprintCallable)
-	float GetPlayerHealth();
-
-	UFUNCTION(BlueprintCallable)
 	void PlayerDeath();
 
 protected:
